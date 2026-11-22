@@ -1,0 +1,75 @@
+Aim - Perform host scanning and information gathering using Nmap and perform network scans to discover hosts and services, using different
+      scan types (e.g., TCP, SYN scan, UDP scan).
+
+Theory:
+
+1. Nmap - Nmap (Network Mapper) is a network exploration and security audit tool used to discover hosts, hosts and services.
+2. Host - Any device connected to a network, such as a laptop, mobile, desktop, server, router or printer.
+3. IP Address - An IP address identifies a device or network interface on an IP network. IPv4 addresses consist of four numbers separated by dots,
+                with each number ranging from 0–255. Example: 192.168.61.238
+4. Port - A communication endpoint used by network applications or services. An IP address identifies the device, while a port identifies the
+          application/service communicating through it.
+5. TCP - Transmission Control Protocol is connection-oriented. It establishes communication using a three-way handshake:
+         SYN (client connection request) → SYN-ACK (server accepts and responds) → ACK (client acknowledges the connection)
+6. UDP - User Datagram Protocol is connectionless. It does not perform the TCP three-way handshake and does not guarantee acknowledgement.
+
+Tools Required - Nmap, Ncat and Windows Command Prompt.
+
+Procedure:
+
+1. Verify Nmap Installation
+Open Command Prompt and execute: nmap --version
+This displays the installed Nmap version and platform information.
+
+2. Check Network Configuration
+Execute: ipconfig
+This displays the IPv4 address, subnet mask, default gateway, and other network interface information.
+
+3. Host Discovery
+Execute: nmap -sn 192.168.61.238
+Here, -sn performs host discovery without normal port scanning to check whether a host is active.
+
+4. Basic Port Scan
+To scan the localhost: nmap 127.0.0.1
+The address 127.0.0.1 represents the local computer.
+
+5. Create a Known Open Port
+Open a new Command Prompt window and start Ncat as a TCP listener: ncat -l -k 8000
+Here, -l means listen mode. Ncat waits for incoming connections on port 8000, and -k means keep listening.
+Now, from the first Command Prompt window, execute: nmap -p 8000 127.0.0.1
+Here, -p selects the port. If Ncat is listening, port 8000 is reported as open.
+Stop Ncat using Ctrl+C and scan again: nmap -p 8000 127.0.0.1
+The port may now be reported as closed because no application is listening on it.
+
+6. TCP SYN Scan
+Execute: nmap -sS -p 8000 127.0.0.1
+Here, -sS performs a TCP SYN scan. For an open port, Nmap generally receives a SYN/ACK, while for a closed port it generally receives an RST.
+
+7. Display the Reason for the Port State
+Execute: nmap -sS --reason -p 8000 127.0.0.1
+Here, --reason displays why Nmap assigned the particular port state.
+
+8. Scan Multiple TCP Ports
+Execute: nmap -sS -p 22,80,443,445,8000 127.0.0.1
+Here, the -p option allows specific ports to be selected.
+
+9. Service and Version Detection
+Execute: nmap -sV 127.0.0.1
+Here, -sV sends additional probes to identify the actual service and software version running on an open port.
+For specific ports: nmap -sV -p 135,445 127.0.0.1
+
+10. UDP Scanning
+Execute: nmap -sU -p 53,123,161 127.0.0.1
+Here: 53 → DNS, 123 → NTP, 161 → SNMP
+A UDP port may be reported as open|filtered when Nmap receives no response because UDP has no handshake.
+
+Important Nmap Options:
+Option	 |   Purpose
+-sn	     | Host discovery
+-p	     | Select specific ports
+-sS	     | TCP SYN scan
+-sU	     | UDP scan
+-sV	     | Service and version detection
+--reason | Shows the reason for the detected port state
+
+Result - The experiment was successfully performed to understand host discovery, TCP and UDP port scanning, port states, and service/version detection using Nmap.
