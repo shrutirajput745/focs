@@ -1,0 +1,271 @@
+EXPERIMENT: CRYPTOGRAPHIC HASH FUNCTION PROPERTIES
+THEORY
+1. Introduction
+
+Cryptography is the technique of securing information and communication by converting data into a form that prevents unauthorized access and modification. It plays an important role in maintaining the confidentiality, integrity, and authenticity of digital information. One of the fundamental concepts used in modern cryptography is the Cryptographic Hash Function.
+
+A cryptographic hash function is a mathematical algorithm that takes an input of arbitrary length, such as a text message, document, image, password, or digital file, and converts it into a fixed-length output called a hash value, hash code, or message digest.
+
+The generated hash value acts as a digital fingerprint of the original data. Every input message produces a corresponding hash value, and even a minor modification in the input generally results in a significantly different hash value.
+
+For example, consider the following two messages:
+
+Message 1: Hello World
+
+Message 2: hello World
+
+Although the two messages differ only in the capitalization of the first character, their resulting hash values will be significantly different.
+
+The primary purpose of a cryptographic hash function is to ensure data integrity by allowing users to verify whether information has been altered during storage or transmission.
+
+Unlike encryption, hashing is generally a one-way process. It does not require a secret key and is not designed to recover the original message from the hash value.
+
+2. Working Principle of a Cryptographic Hash Function
+
+A cryptographic hash function processes the input data using a mathematical algorithm and generates a fixed-size digest.
+
+The general representation of a cryptographic hash function is:
+
+H(M) = D
+
+Where:
+
+H = Cryptographic hash function
+
+M = Original input message
+
+D = Generated hash value or message digest
+
+The working process involves the following steps:
+
+Input Message: The user provides data of any length, such as a text string, file, or document.
+Hash Processing: The hash algorithm processes the input using mathematical and logical operations.
+Message Digest Generation: The algorithm generates a fixed-length hash value.
+Hash Comparison: The generated hash value can be compared with a previously calculated trusted hash value to identify changes in the original data.
+Integrity Verification: If the hash values match, the data is consistent with the data used to generate the reference hash. If they differ, the data has changed or the inputs were different.
+
+For example, the SHA-256 algorithm always produces a 256-bit output, irrespective of whether the input is a single character or a large document.
+
+3. Important Properties of Cryptographic Hash Functions
+
+A secure cryptographic hash function must satisfy several important properties. These properties make hashing algorithms suitable for protecting information and verifying data integrity.
+
+3.1 Deterministic Property
+
+A cryptographic hash function must be deterministic, which means that the same input message must always produce the same hash value.
+
+For example, if the message "Hello World" is passed through the SHA-256 algorithm multiple times, the generated hash value will remain exactly the same, provided the input and algorithm are unchanged.
+
+Mathematically:
+
+H(M) = H(M)
+
+This property is important because it allows users to verify the integrity of stored or transmitted information by comparing hash values generated at different times.
+
+Importance: Determinism ensures consistency and reliability in data verification.
+
+3.2 Fixed-Length Output
+
+A cryptographic hash function accepts input messages of arbitrary length but always generates an output of a predefined fixed length.
+
+For example:
+
+MD5 generates a 128-bit hash value.
+SHA-1 generates a 160-bit hash value.
+SHA-256 generates a 256-bit hash value.
+SHA-512 generates a 512-bit hash value.
+
+Regardless of whether the input contains one character, one paragraph, or an entire file, the output length remains constant for a particular algorithm.
+
+Importance: Fixed-length output makes hash values convenient for storage, comparison, indexing, and verification.
+
+3.3 Pre-image Resistance
+
+Pre-image resistance is one of the most important security properties of a cryptographic hash function.
+
+It means that given a hash value, it should be computationally infeasible to determine the original input message that produced that hash value.
+
+For example, if a user knows the SHA-256 hash of a message, it should not be practically possible to reverse the hashing process and obtain the original message directly.
+
+Mathematically:
+
+H(M) = D
+
+Given D, finding M should be computationally infeasible.
+
+Importance: This property makes cryptographic hashing useful in security applications where hash values are stored instead of plaintext data. However, weak passwords can still be guessed using dictionary or brute-force attacks, which is why dedicated password-hashing algorithms are required.
+
+3.4 Second Pre-image Resistance
+
+Second pre-image resistance means that if an original message is already known, it should be computationally infeasible to find another different message that produces exactly the same hash value.
+
+For example, suppose a message "Data Security" produces a particular hash value. It should be extremely difficult to construct another message that produces exactly the same hash value.
+
+Mathematically:
+
+H(M1) = H(M2)
+
+Where M1 is known and finding a different M2 should be computationally infeasible.
+
+Importance: This property helps prevent attackers from replacing an original message with another message having the same hash value.
+
+3.5 Collision Resistance
+
+Collision resistance means that it should be computationally infeasible to find any two different input messages that produce the same hash value.
+
+Since hash functions convert unlimited possible input messages into a fixed-size output, collisions must theoretically exist. However, a secure hash function makes finding such collisions practically infeasible.
+
+For example:
+
+M1 ≠ M2
+
+But:
+
+H(M1) = H(M2)
+
+This situation is called a hash collision.
+
+Importance: Collision resistance is particularly important in digital signatures, file verification, certificate systems, and other security applications.
+
+3.6 Avalanche Effect
+
+The avalanche effect is an important characteristic of cryptographic hash functions. It means that a very small change in the input message should produce a significantly different hash output.
+
+For example, consider the following messages:
+
+Input 1: HELLO
+
+Input 2: HELLo
+
+Only one character has been changed, but the resulting hash values will be completely different in appearance.
+
+This property ensures that even a minor modification in the original data can be detected through hash comparison.
+
+Importance: The avalanche effect helps identify accidental or intentional changes in messages, files, and other digital information.
+
+3.7 Efficient Computation
+
+A cryptographic hash function should be computationally efficient. It should be capable of processing messages of different sizes and generating their corresponding hash values within a reasonable amount of time.
+
+For example, a hash algorithm should be able to calculate the digest of a text message, PDF document, or large digital file without requiring excessive computational resources.
+
+Importance: Efficient computation makes cryptographic hash functions practical for everyday applications, including secure communication, file verification, and blockchain systems.
+
+4. Common Cryptographic Hash Algorithms
+
+Several cryptographic hash algorithms have been developed over time. Each algorithm produces a hash value of a specific length.
+
+4.1 MD5 (Message Digest 5)
+Produces a 128-bit hash value.
+Processes input messages to generate a fixed-length digest.
+It is no longer considered secure because practical collision attacks exist.
+It may be studied for educational purposes but should not be used for security-sensitive applications.
+4.2 SHA-1 (Secure Hash Algorithm 1)
+Produces a 160-bit hash value.
+Was previously used in digital certificates and integrity verification.
+It is now considered insecure for collision-resistant applications.
+4.3 SHA-256 (Secure Hash Algorithm 256)
+Produces a 256-bit hash value.
+Belongs to the SHA-2 family.
+Widely used in modern security applications.
+Provides strong security against currently known practical collision attacks.
+4.4 SHA-512 (Secure Hash Algorithm 512)
+Produces a 512-bit hash value.
+Belongs to the SHA-2 family.
+Provides a larger digest size than SHA-256.
+Used in applications requiring a 512-bit hash output.
+5. Applications of Cryptographic Hash Functions
+
+Cryptographic hash functions are widely used in different areas of computer security and information technology.
+
+Data Integrity Verification:
+
+Hash functions are used to verify whether data has been modified during transmission or storage. The sender calculates the hash value of a file and shares it through a trusted channel. The receiver calculates the hash of the received file and compares both values. If they match, the received file is consistent with the original data.
+
+Password Protection:
+
+Websites and applications use password-hashing algorithms to store password verifiers instead of storing actual passwords in plaintext. Algorithms such as Argon2, bcrypt, and scrypt are specifically designed for secure password storage.
+
+Digital Signatures:
+
+Hash functions are used in digital signature systems to generate a message digest. The digest is then processed as part of the digital signing and verification procedure to ensure message integrity and authenticate the signer.
+
+Blockchain Technology:
+
+Blockchain systems use cryptographic hash functions to connect blocks of information securely. Each block contains a reference to the hash of the previous block, helping maintain the integrity of the blockchain.
+
+File Verification:
+
+Software developers distribute hash values along with downloadable files. Users can calculate the hash of the downloaded file and compare it with the trusted reference value to detect accidental corruption or modification.
+
+Message Authentication:
+
+Hash functions are used in mechanisms such as HMAC (Hash-based Message Authentication Code) to verify the integrity and authenticity of messages using a secret key.
+
+6. Difference Between Encryption and Hashing
+
+Although encryption and hashing are both cryptographic techniques, they serve different purposes.
+
+Encryption:
+
+Provides confidentiality.
+Is reversible using the correct decryption key.
+Produces ciphertext.
+Uses encryption keys.
+Examples: AES and RSA.
+
+Hashing:
+
+Primarily supports data integrity.
+Is designed as a one-way process.
+Produces a fixed-length hash value.
+Basic hash functions do not require secret keys.
+Examples: SHA-256 and SHA-512.
+
+Encryption protects the confidentiality of information, whereas hashing helps verify the integrity of information.
+
+7. Role of Hash Functions in Data Security and Integrity
+
+Cryptographic hash functions play a significant role in modern cybersecurity because they provide a reliable method for detecting changes in digital information.
+
+When data is transmitted over a network, stored in a database, or downloaded from the internet, there is a possibility of accidental corruption or unauthorized modification.
+
+Hash functions help address this problem by generating a unique-looking digest for the given input.
+
+If the original and received data produce different hash values, it indicates that the data is not identical. This makes hashing an effective technique for integrity verification.
+
+However, a plain hash value alone does not guarantee that the message came from a trusted sender. An attacker who can modify both a file and its accompanying hash value may defeat a simple comparison. Therefore, secure systems use authenticated mechanisms such as HMAC and digital signatures when authenticity is also required.
+
+8. Practical Demonstration of Hash Function Properties
+
+In this laboratory experiment, students can observe the working and important properties of cryptographic hash functions by providing different input messages and generating their corresponding hash values.
+
+The following activities can be performed:
+
+Enter a text message and calculate its SHA-256 hash value.
+Enter the same message again and verify that the hash value remains identical, demonstrating determinism.
+Change a single character in the original message and calculate its hash again to observe the avalanche effect.
+Enter messages of different lengths and observe that the output size remains fixed.
+Calculate the hash values of two different messages and compare their outputs.
+Compare the output lengths of different algorithms such as MD5, SHA-1, SHA-256, and SHA-512.
+Verify the integrity of a file by calculating its hash before and after making a modification.
+
+These activities help students understand the practical significance of cryptographic hash functions and their role in maintaining data security.
+
+9. Expected Observations
+Same input entered twice: Expected observation: Same hash output. Property demonstrated: Deterministic property.
+Different input lengths: Expected observation: Same output length for a given algorithm. Property demonstrated: Fixed-length output.
+One character changed: Expected observation: Significantly different hash. Property demonstrated: Avalanche effect.
+Two different messages: Expected observation: Normally different hash values. Property demonstrated: Collision resistance.
+Given hash value: Expected observation: Original message cannot practically be recovered directly. Property demonstrated: Pre-image resistance.
+Known message and hash: Expected observation: Finding another message with the same hash is computationally infeasible. Property demonstrated: Second pre-image resistance.
+
+Note: These observations demonstrate the expected behavior of secure hash algorithms. They do not constitute practical proof of all security properties.
+
+10. Conclusion
+
+Cryptographic hash functions are fundamental building blocks of modern information security. They convert input messages of arbitrary length into fixed-length hash values, which act as digital fingerprints of the original data.
+
+Properties such as determinism, fixed-length output, pre-image resistance, second pre-image resistance, collision resistance, and the avalanche effect make cryptographic hash functions useful for ensuring data integrity and supporting secure communication.
+
+Through this experiment, students gain practical knowledge of how hashing algorithms operate, how small changes in input affect hash values, and how different cryptographic algorithms generate message digests. The experiment demonstrates the importance of cryptographic hashing in protecting digital information against accidental corruption and unauthorized modification.
