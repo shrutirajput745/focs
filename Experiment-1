@@ -1,0 +1,66 @@
+Aim - Information Gathering using Google Search Techniques of Google Search Engine
+
+Theory - Google Dorking is the use of advanced Google search operators to find specific information from publicly indexed web pages.
+         It helps in passive information gathering because it does not directly interact with the target system.
+
+Google Search Operators:
+
+1. site:
+— Restricts search results to a specific website or domain.
+Example - site:wikipedia.org artificial intelligence
+           — Searches for artificial intelligence only on Wikipedia.
+          site:.gov.in cybersecurity
+           — Searches for cybersecurity on Indian government websites.
+
+2. filetype:
+— Restricts the result to a specific file format.
+Example - site:nasa.gov filetype:pdf climate
+           — Finds PDF documents related to climate on NASA's website.
+          filetype:xls "annual report"
+           — Searches for Excel spreadsheet files containing the phrase "annual report".
+
+3. intitle:
+— Searches for a word or exact phrase within the webpage title.
+Example - intitle:"index of" "parent directory"
+           — Searches for pages that contain "index of" in the title and "parent directory" in the page content.
+          intitle:"cyber security"
+           — Finds pages containing the phrase "cyber security" in the title.
+
+4. allintitle:
+— Searches for pages whose titles contain all the specified words.
+Example - allintitle: annual report 2025
+           — Finds pages whose titles contain "annual", "report", and "2025".
+
+5. inurl:
+— Searches for a word or phrase within the webpage URL.
+Example - inurl:admin site:*.in
+           — Finds websites whose URL contains the word "admin".
+          inurl:login site:.edu
+           — Finds educational websites whose URL contains the word "login".
+
+6. allinurl:
+— Searches for URLs containing all the specified words.
+Example - allinurl: contact whatsapp
+           — Searches for URLs containing both "contact" and "whatsapp".
+
+7. intext:
+— Searches for a specific word or phrase within the body text of webpages/documents.
+Example - intext:"cyber security" "budget"
+           — Finds documents containing the words "cyber security" and "budget".
+          intext:"cyber security"
+           — Finds webpages containing the phrase "cyber security".
+
+8. allintext:
+— Searches for webpages containing all the specified words in their body text.
+Example - allintext: annual report 2025
+           — Finds pages whose body text contains "annual", "report", and "2025".
+
+9. - (Minus Operator)
+— Excludes a specified word from the search results.
+Example - python -snake
+           — Searches for Python while excluding results related to snakes.
+
+10. related:
+— Finds websites related or similar to a specified website.
+Example - related:wikipedia.org, related:github.com
+           — Finds websites related or similar to the specified website.
