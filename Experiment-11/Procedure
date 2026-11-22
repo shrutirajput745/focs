@@ -1,0 +1,72 @@
+Experiment - 11
+
+Title : Detecting and Mitigating Phishing Attacks using Gophish (Authorised Phishing Simulation)
+
+Aim : To set up a safe, authorised phishing simulation using Gophish, analyse how phishing emails are built and spotted, and measure awareness.
+
+Tools / Requirements :
+- Kali Linux / Windows OS
+- Gophish Framework
+- Test SMTP Mail Server Setup
+- Web Browser & Consenting Test Users
+
+Theory :
+Phishing is a deceptive technique where attackers send fake emails to trick users into revealing sensitive data. Specialized forms include Spear phishing (targeting individuals), Whaling (aiming at high-level executives), Smishing (via SMS), and Vishing (voice call phishing). To safely simulate these attacks, Gophish is used—an open-source defensive and training framework that runs on Kali or Windows, launching a web dashboard on port 3333 to track open, click, and mock data submissions.
+
+Procedure (Steps Performed) :
+1. Download and extract the Gophish zip archive.
+2. Make the Gophish binary executable (chmod +x gophish) and run it with sudo ./gophish in terminal.
+3. Retrieve the generated admin password from the console and log into the Gophish dashboard at https://127.0.0.1:3333.
+4. Create a Sending Profile using a test SMTP server (e.g., Lab Sender).
+5. Draft an Email Template (the lure message) using the {{.URL}} and {{.FirstName}} placeholders.
+6. Build a Landing Page that safely registers clicks while displaying educational warnings.
+7. Create a Users & Groups list containing the emails of consenting test participants.
+8. Launch the Campaign, tying the profile, template, page, and group together to send and track the emails.
+
+Gophish Five Building Blocks :
+- Sending Profile: SMTP details.
+- Email Template: Lure messages.
+- Landing Page: Educational fake site.
+- Users & Groups: Consenting test list.
+- Campaign: Integrates all blocks.
+
+Observations (Screenshots) :
+
+(1) Terminal - Install & Launch Gophish
+Observation : The Gophish archive is extracted, binary permissions are set, and the server is started via terminal. It binds the admin web dashboard to port 3333 and generates a temporary admin password in the console.
+
+(2) Gophish Admin Login Page
+Observation : The local Gophish admin portal is opened in Firefox on port 3333 login page. The administrator authenticates using the 'admin' username and the temporary password retrieved from the terminal output.
+
+(3) Gophish Web Dashboard
+Observation : Upon successful login, the main Gophish web dashboard is displayed on port 3333. The left navigation menu provides access to Campaigns, Users & Groups, Email Templates, Landing Pages, and Sending Profiles.
+
+(4) Step 1: Sending Profile
+Observation : A new SMTP sending profile named 'Foundation of Cyber Security' is configured using Gmail SMTP (smtp.gmail.com:587). Authentication credentials are entered and verified to enable outbound simulation emails.
+
+(5) Step 2: Landing Page
+Observation : A training landing page titled 'Cybersecurity Awareness' is created using the HTML editor. When clicked, it safely logs the event and displays a security awareness notice instead of harvesting credentials.
+
+(6) Step 3: Email Template
+Observation : The phishing lure email 'Security Awareness Reminder' is drafted with subject 'Important: Security Awareness Reminder'. The hidden tracking image option is enabled to detect when the recipient opens the email.
+
+(7) Step 4: Users & Groups
+Observation : A target recipient group named 'Security Awareness Test' is created under Users & Groups. Consenting test participant 'Unis Hussain' (Employee) is added to receive the authorised simulation email.
+
+(8) Step 5: Launch the Campaign
+Observation : All building blocks are linked inside 'Security Awareness Campaign 01' with URL http://127.0.0.1. Launching the campaign dispatches the email to the target group and begins live event tracking.
+
+(9) Phishing Email Received in Gmail
+Observation : The simulated phishing email arrives in the recipient's Gmail inbox personalized with 'Hello Mirza'. It contains a persuasive call-to-action button labeled 'Review Security Awareness' pointing to the tracking URL.
+
+(10) Triggered Awareness Landing Page
+Observation : Clicking the link inside the email redirects the user to the hosted Gophish landing page. It alerts the user that they clicked a simulated phishing link and provides tips to stay safe online.
+
+(11) Campaign Results Overview
+Observation : The live Gophish results dashboard displays real-time engagement metrics across the campaign timeline. It records 1 Email Sent, 1 Email Opened, 1 Clicked Link, 0 Submitted Data, and 1 Email Reported.
+
+(12) Detailed Event Timeline
+Observation : Expanding the recipient details reveals the chronological audit log for 'Unis Hussain'. It captures exact timestamps, Linux OS and Firefox browser details for link clicks, and the final 'Email Reported' event.
+
+Result :
+An authorised phishing simulation campaign was successfully configured and executed using Gophish, tracking email delivery, opens, link clicks, and reporting feedback in real time.
