@@ -1,0 +1,36 @@
+Steps to Install Wireshark
+
+1. Open a web browser and visit the official Wireshark website:
+   https://www.wireshark.org/download.html
+
+2. Go to the **Windows** download section.
+
+3. Download the appropriate **Windows Installer** for your system.
+
+4. Open the downloaded `.exe` installer from the **Downloads** folder.
+
+5. If Windows asks for administrator permission, click **Yes**.
+
+6. The **Wireshark Setup Wizard** will open. Click **Next**.
+
+7. Accept the license agreement and click **Next**.
+
+8. Keep the default components selected and click **Next**.
+
+9. Select the required shortcut options and click **Next**.
+
+10. Keep the default installation location and click **Next**.
+
+11. Click **Install** to begin the installation.
+
+12. When prompted, allow **Npcap** to be installed. Npcap is required for live packet capture on Windows.
+
+13. Wait for the installation to complete.
+
+14. Click **Finish**.
+
+15. Open **Wireshark** from the Start Menu or desktop shortcut.
+
+16. Check that your available network interfaces, such as **Wi-Fi** or **Ethernet**, are displayed.
+
+17. Select the active network interface to confirm that Wireshark is ready for packet capture.
