@@ -1,0 +1,47 @@
+Installation / Setup Steps for Experiment 5
+
+1. Download the **Kali Linux ISO** from the official Kali Linux website:
+
+   [https://www.kali.org/get-kali/](https://www.kali.org/get-kali/)
+
+2. Install Kali Linux using a suitable virtual machine such as **VirtualBox** or **VMware**.
+
+3. Start the Kali Linux virtual machine after completing the installation.
+
+4. Log in using the username and password created during the Kali Linux installation.
+
+5. Open the **Terminal** in Kali Linux.
+
+6. Update the package repository using:
+
+bash
+sudo apt update
+
+
+7. Upgrade the installed packages if required:
+
+bash
+sudo apt upgrade
+
+
+8. Check whether **Hydra** is installed:
+
+bash
+hydra -h
+
+
+9. If Hydra is not installed, install it using:
+
+bash
+sudo apt install hydra
+
+
+10. After installation, verify Hydra again:
+
+bash
+hydra -h
+
+
+11. If the Hydra help menu is displayed, the installation has been completed successfully.
+
+12. The Kali Linux environment and Hydra are now ready for the authorized laboratory demonstration of dictionary and brute-force attacks.
