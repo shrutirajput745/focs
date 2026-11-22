@@ -1,0 +1,64 @@
+Experiment 4
+
+## Packet Capturing and Analyzing
+
+### Aim:
+To install Wireshark on your system, capture network traffic on a specific network interface, and analyze the captured packets to identify different protocols and data types.
+
+### Tools Required:
+1. Computer / Laptop
+2. Wireshark
+3. Active network interface (Wi-Fi / Ethernet)
+4. Internet / Local Network
+
+### Theory:
+Wireshark is an open-source network protocol analyzer used to capture and analyze network packets. It helps in inspecting the communication between devices and identifying different protocols and data types used in a network. A packet is a small unit of data transmitted over a network. Wireshark displays information such as source address, destination address, protocol, packet length and the actual data contained in the packet.
+
+### Common Protocols:
+1. **TCP:** Connection-oriented protocol used for reliable data transfer.
+2. **UDP:** Connectionless protocol used for fast communication without guaranteed delivery.
+3. **DNS:** Used to convert domain names (e.g. google.com) into IP addresses.
+4. **ICMP:** Used for network testing and error reporting (e.g. ping).
+5. **HTTP/HTTPS:** Used for web communication between client and server. HTTPS provides encrypted communication.
+
+# Procedure:
+1. Open Wireshark after successful installation.
+2. Select the active network interface such as Wi-Fi or Ethernet.
+3. Start capturing packets by clicking on the selected interface.
+4. Generate network traffic by opening a website or using ping command.
+5. Observe the packets being captured in real time.
+6. Stop the capture after collecting sufficient packets.
+7. Examine the Source, Destination, Protocol, Length and Info fields.
+8. Select any packet to view its detailed information.
+9. Identify different protocols such as TCP, UDP, DNS and ICMP from the captured packets.
+
+
+# Packet Capturing:
+Wireshark captures the packets travelling through the selected network interface and displays them in real time. The main packet list contains No., Time, Source, Destination, Protocol, Length and Info fields.
+
+# Packet Analysis:
+Select any captured packet and examine its details. The packet is displayed layer by layer showing frame information, Ethernet header, IP header, TCP/UDP header and the actual data.
+
+# Identification of Different Protocols:
+The captured packets can be examined to identify various network protocols and data types used during communication.
+
+### 1) TCP Packets:
+TCP is a connection-oriented protocol used for reliable data transfer.
+
+### 2) DNS Packets:
+DNS is used to resolve domain names into IP addresses.
+
+### 3) ICMP Packets:
+ICMP is used for network diagnostics and error reporting (e.g. ping command).
+
+# Types of Data Observed in Packets:
+1. **Control Data:** Used for establishing and managing communication (e.g. TCP handshakes, connection setup).
+2. **Addressing Data:** Contains source and destination MAC and IP addresses.
+3. **Application Data:** Data exchanged by applications (e.g. DNS queries, HTTP requests).
+4. **Protocol Information:** Information related to protocol headers such as TCP, UDP, DNS, ICMP, etc.
+
+
+
+# Result:
+
+The Wireshark software was successfully installed and used to capture network traffic on the selected interface. The captured packets were analyzed and different protocols such as TCP, UDP, DNS and ICMP and different types of data were successfully identified.
